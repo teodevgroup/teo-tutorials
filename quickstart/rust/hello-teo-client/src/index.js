@@ -79,6 +79,7 @@ function buildHeadersAndQueryString(currentHeaders, headers, queryString) {
 
 class TeoError extends Error {
     constructor(responseError) {
+        console.log(responseError)
         super(responseError.message)
         this.type = responseError.type
         this.errors = responseError.errors

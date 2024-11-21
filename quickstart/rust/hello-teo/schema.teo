@@ -7,6 +7,8 @@ server {
   bind: ("0.0.0.0", 5050)
 }
 
+request middlewares [logRequest]
+
 client ts {
   provider: .typeScript,
   dest: "../hello-teo-client/",
