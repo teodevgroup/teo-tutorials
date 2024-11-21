@@ -49,7 +49,7 @@ declare form handler upload(UploadInput): Data<UploadOutput>
 interface UploadInput {
   file: File
 }
- 
+
 interface UploadOutput {
   path: String
 }
