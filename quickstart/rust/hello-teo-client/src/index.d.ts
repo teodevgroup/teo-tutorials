@@ -6849,10 +6849,6 @@ export namespace std {
         export interface IdentityNamespaceDelegate {
 
             
-            identity<T extends FFUCKArgsFUCKK>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<FFUCKResultFUCKK>>
-            
-            signIn<T extends F2FUCKstd.identity.SignInInputFUCK2K>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<FFUCKResultFUCKK, std.identity.TokenInfo>>
-            
 
             
 

@@ -10,10 +10,7 @@ let groupDelegateMap = [
     "std.bcrypt",
     "std.identity"
 ]
-let customHandlerMap = {
-    "std.identity.identity":{ method: "POST", path: "std/identity/identity", pathArguments: false },
-    "std.identity.signIn":{ method: "POST", path: "std/identity/signIn", pathArguments: false }
-}
+let customHandlerMap = {}
 
 async function request(method, path, body = undefined, headers = undefined, queryString = undefined) {
     let url = "http://127.0.0.1:5050/" + path
