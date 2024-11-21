@@ -2,7 +2,7 @@ connector {
   provider: .mysql,
   url: "mysql://localhost:3306/helloschemaonly",
 }
- 
+
 server {
   bind: ("0.0.0.0", 5050)
 }
