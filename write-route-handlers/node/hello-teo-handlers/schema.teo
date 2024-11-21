@@ -8,8 +8,8 @@ connector {
 }
 
 entity {
-  provider: .rust,
-  dest: "./src/entities"
+  provider: .node,
+  dest: "./entities"
 }
 
 request middlewares [logRequest]
@@ -19,7 +19,7 @@ declare nonapi handler hello(): Any
 
 @map(.get, "/empty")
 declare nonapi handler empty(): Any
- 
+
 @map(.get, "/echo/:data", interface: "EchoPathArguments")
 declare nonapi handler echo(): Any
 
