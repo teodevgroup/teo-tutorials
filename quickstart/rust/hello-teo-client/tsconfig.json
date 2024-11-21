@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [ "es2015", "dom" ],
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": true
+  },
+  "include": ["/**/*.ts"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true
+  }
+}
