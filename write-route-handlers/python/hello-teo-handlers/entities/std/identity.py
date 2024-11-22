@@ -4,6 +4,7 @@ from re import Pattern
 from datetime import date, datetime
 from decimal import Decimal
 from teo import ObjectId, Enumerable, File, Range, OptionVariant
+from teo.annotations import CapturesAnnotationMark, RequestBodyObjectAnnotationMark, TeoAnnotationMark
 
 
 if TYPE_CHECKING:
@@ -17,7 +18,7 @@ if TYPE_CHECKING:
 # **Token info**
 #
 # This interface doesn't have a description.
-class TokenInfo(TypedDict):
+class TokenInfo(RequestBodyObjectAnnotationMark):
 
 
     # **Token**

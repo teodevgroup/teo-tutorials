@@ -8,7 +8,7 @@ from shutil import move
 
 async def main():
     app = App()
-    def hello_handler(_request):
+    def hello_handler():
         return Response.html("""
             <html>
                 <head>
@@ -20,21 +20,17 @@ async def main():
             </html>
         """)
     app.main_namespace().define_handler("hello", hello_handler)
-    def empty_handler(_request):
+    def empty_handler():
         return Response.empty()
     app.main_namespace().define_handler("empty", empty_handler)    
-    def echo_handler(request: Request):
-        path_arguments: EchoPathArguments = request.captures()
-        return Response.string(path_arguments["data"], "text/plain")
+    def echo_handler(captures: EchoPathArguments):
+        return Response.string(captures["data"], "text/plain")
     app.main_namespace().define_handler("echo", echo_handler)
-    def static_handler(request: Request):
-        path_args: StaticPathArguments = request.captures()
+    def static_handler(path_args: StaticPathArguments):
         return Response.send_file("static", path_args["path"])
-    app.main_namespace().define_handler("static", static_handler)  
+    app.main_namespace().define_handler("static", static_handler)
     def record_group(group: HandlerGroup):
-        async def alter_created_at_handler(request: Request):
-            input: AlterCreatedAtInput = request.body_object()
-            teo: Teo = request.teo()
+        async def alter_created_at_handler(input: AlterCreatedAtInput, teo: Teo):
             record = await teo.record.find_unique_object({
                 "where": {
                     "id": input["id"]
@@ -47,8 +43,7 @@ async def main():
             return Response.data(await record.to_teon())
         group.define_handler("alterCreatedAt", alter_created_at_handler)
     app.main_namespace().define_model_handler_group("Record", record_group) 
-    def upload_handler(request: Request):
-        input: UploadInput = request.body_object()
+    def upload_handler(input: UploadInput):
         extension = Path(input["file"].filepath).suffix
         random_file_name = ''.join(choice(ascii_letters) for i in range(6))
         destination = "static/images/" + random_file_name + extension

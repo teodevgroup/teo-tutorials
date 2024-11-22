@@ -4,6 +4,7 @@ from re import Pattern
 from datetime import date, datetime
 from decimal import Decimal
 from teo import ObjectId, Enumerable, File, Range, OptionVariant
+from teo.annotations import CapturesAnnotationMark, RequestBodyObjectAnnotationMark, TeoAnnotationMark
 
 from . import std
 
@@ -23,7 +24,7 @@ RecordIndirectRelations = Literal[None]
 # **Alter created at input**
 #
 # This interface doesn't have a description.
-class AlterCreatedAtInput(TypedDict):
+class AlterCreatedAtInput(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -40,7 +41,7 @@ class AlterCreatedAtInput(TypedDict):
 # **Upload input**
 #
 # This interface doesn't have a description.
-class UploadInput(TypedDict):
+class UploadInput(RequestBodyObjectAnnotationMark):
 
 
     # **File**
@@ -52,7 +53,7 @@ class UploadInput(TypedDict):
 # **Upload output**
 #
 # This interface doesn't have a description.
-class UploadOutput(TypedDict):
+class UploadOutput(RequestBodyObjectAnnotationMark):
 
 
     # **Path**
@@ -64,7 +65,7 @@ class UploadOutput(TypedDict):
 # **Record select**
 #
 # This synthesized interface doesn't have a description
-class RecordSelect(TypedDict):
+class RecordSelect(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -91,7 +92,7 @@ class RecordSelect(TypedDict):
 # **Record include**
 #
 # This synthesized interface doesn't have a description
-class RecordInclude(TypedDict):
+class RecordInclude(RequestBodyObjectAnnotationMark):
 
     pass
 
@@ -100,7 +101,7 @@ class RecordInclude(TypedDict):
 # **Record where input**
 #
 # This synthesized interface doesn't have a description
-class RecordWhereInput(TypedDict):
+class RecordWhereInput(RequestBodyObjectAnnotationMark):
 
 
     # **And**
@@ -142,7 +143,7 @@ class RecordWhereInput(TypedDict):
 # **Record where unique input**
 #
 # This synthesized interface doesn't have a description
-class RecordWhereUniqueInput(TypedDict):
+class RecordWhereUniqueInput(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -154,7 +155,7 @@ class RecordWhereUniqueInput(TypedDict):
 # **Record scalar where with aggregates input**
 #
 # This synthesized interface doesn't have a description
-class RecordScalarWhereWithAggregatesInput(TypedDict):
+class RecordScalarWhereWithAggregatesInput(RequestBodyObjectAnnotationMark):
 
 
     # **And**
@@ -196,7 +197,7 @@ class RecordScalarWhereWithAggregatesInput(TypedDict):
 # **Record relation filter**
 #
 # This synthesized interface doesn't have a description
-class RecordRelationFilter(TypedDict):
+class RecordRelationFilter(RequestBodyObjectAnnotationMark):
 
 
     # **Is**
@@ -213,7 +214,7 @@ class RecordRelationFilter(TypedDict):
 # **Record list relation filter**
 #
 # This synthesized interface doesn't have a description
-class RecordListRelationFilter(TypedDict):
+class RecordListRelationFilter(RequestBodyObjectAnnotationMark):
 
 
     # **Every**
@@ -235,7 +236,7 @@ class RecordListRelationFilter(TypedDict):
 # **Record order by input**
 #
 # This synthesized interface doesn't have a description
-class RecordOrderByInput(TypedDict):
+class RecordOrderByInput(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -262,7 +263,7 @@ class RecordOrderByInput(TypedDict):
 # **Record count aggregate input type**
 #
 # This synthesized interface doesn't have a description
-class RecordCountAggregateInputType(TypedDict):
+class RecordCountAggregateInputType(RequestBodyObjectAnnotationMark):
 
 
     # **All**
@@ -294,7 +295,7 @@ class RecordCountAggregateInputType(TypedDict):
 # **Record sum aggregate input type**
 #
 # This synthesized interface doesn't have a description
-class RecordSumAggregateInputType(TypedDict):
+class RecordSumAggregateInputType(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -306,7 +307,7 @@ class RecordSumAggregateInputType(TypedDict):
 # **Record avg aggregate input type**
 #
 # This synthesized interface doesn't have a description
-class RecordAvgAggregateInputType(TypedDict):
+class RecordAvgAggregateInputType(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -318,7 +319,7 @@ class RecordAvgAggregateInputType(TypedDict):
 # **Record min aggregate input type**
 #
 # This synthesized interface doesn't have a description
-class RecordMinAggregateInputType(TypedDict):
+class RecordMinAggregateInputType(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -345,7 +346,7 @@ class RecordMinAggregateInputType(TypedDict):
 # **Record max aggregate input type**
 #
 # This synthesized interface doesn't have a description
-class RecordMaxAggregateInputType(TypedDict):
+class RecordMaxAggregateInputType(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -372,7 +373,7 @@ class RecordMaxAggregateInputType(TypedDict):
 # **Record create input**
 #
 # This synthesized interface doesn't have a description
-class RecordCreateInput(TypedDict):
+class RecordCreateInput(RequestBodyObjectAnnotationMark):
 
 
     # **Value**
@@ -384,7 +385,7 @@ class RecordCreateInput(TypedDict):
 # **Record update input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateInput(TypedDict):
+class RecordUpdateInput(RequestBodyObjectAnnotationMark):
 
 
     # **Value**
@@ -396,7 +397,7 @@ class RecordUpdateInput(TypedDict):
 # **Record create nested one input**
 #
 # This synthesized interface doesn't have a description
-class RecordCreateNestedOneInput(TypedDict):
+class RecordCreateNestedOneInput(RequestBodyObjectAnnotationMark):
 
 
     # **Connect**
@@ -418,7 +419,7 @@ class RecordCreateNestedOneInput(TypedDict):
 # **Record create nested many input**
 #
 # This synthesized interface doesn't have a description
-class RecordCreateNestedManyInput(TypedDict):
+class RecordCreateNestedManyInput(RequestBodyObjectAnnotationMark):
 
 
     # **Connect**
@@ -440,7 +441,7 @@ class RecordCreateNestedManyInput(TypedDict):
 # **Record update nested one input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateNestedOneInput(TypedDict):
+class RecordUpdateNestedOneInput(RequestBodyObjectAnnotationMark):
 
 
     # **Connect**
@@ -487,7 +488,7 @@ class RecordUpdateNestedOneInput(TypedDict):
 # **Record update nested many input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateNestedManyInput(TypedDict):
+class RecordUpdateNestedManyInput(RequestBodyObjectAnnotationMark):
 
 
     # **Connect**
@@ -544,7 +545,7 @@ class RecordUpdateNestedManyInput(TypedDict):
 # **Record connect or create input**
 #
 # This synthesized interface doesn't have a description
-class RecordConnectOrCreateInput(TypedDict):
+class RecordConnectOrCreateInput(RequestBodyObjectAnnotationMark):
 
 
     # **Create**
@@ -561,7 +562,7 @@ class RecordConnectOrCreateInput(TypedDict):
 # **Record update with where unique input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateWithWhereUniqueInput(TypedDict):
+class RecordUpdateWithWhereUniqueInput(RequestBodyObjectAnnotationMark):
 
 
     # **Update**
@@ -578,7 +579,7 @@ class RecordUpdateWithWhereUniqueInput(TypedDict):
 # **Record upsert with where unique input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpsertWithWhereUniqueInput(TypedDict):
+class RecordUpsertWithWhereUniqueInput(RequestBodyObjectAnnotationMark):
 
 
     # **Create**
@@ -600,7 +601,7 @@ class RecordUpsertWithWhereUniqueInput(TypedDict):
 # **Record update many with where input**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateManyWithWhereInput(TypedDict):
+class RecordUpdateManyWithWhereInput(RequestBodyObjectAnnotationMark):
 
 
     # **Update**
@@ -617,7 +618,7 @@ class RecordUpdateManyWithWhereInput(TypedDict):
 # **Record result**
 #
 # This synthesized interface doesn't have a description
-class RecordResult(TypedDict):
+class RecordResult(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -644,7 +645,7 @@ class RecordResult(TypedDict):
 # **Record count aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordCountAggregateResult(TypedDict):
+class RecordCountAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **All**
@@ -676,7 +677,7 @@ class RecordCountAggregateResult(TypedDict):
 # **Record sum aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordSumAggregateResult(TypedDict):
+class RecordSumAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -688,7 +689,7 @@ class RecordSumAggregateResult(TypedDict):
 # **Record avg aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordAvgAggregateResult(TypedDict):
+class RecordAvgAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **Id**
@@ -700,7 +701,7 @@ class RecordAvgAggregateResult(TypedDict):
 # **Record min aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordMinAggregateResult(TypedDict):
+class RecordMinAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -727,7 +728,7 @@ class RecordMinAggregateResult(TypedDict):
 # **Record max aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordMaxAggregateResult(TypedDict):
+class RecordMaxAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -754,7 +755,7 @@ class RecordMaxAggregateResult(TypedDict):
 # **Record aggregate result**
 #
 # This synthesized interface doesn't have a description
-class RecordAggregateResult(TypedDict):
+class RecordAggregateResult(RequestBodyObjectAnnotationMark):
 
 
     # **Avg**
@@ -786,7 +787,7 @@ class RecordAggregateResult(TypedDict):
 # **Record group by result**
 #
 # This synthesized interface doesn't have a description
-class RecordGroupByResult(TypedDict):
+class RecordGroupByResult(RequestBodyObjectAnnotationMark):
 
 
     # **Avg**
@@ -838,7 +839,7 @@ class RecordGroupByResult(TypedDict):
 # **Record args**
 #
 # This synthesized interface doesn't have a description
-class RecordArgs(TypedDict):
+class RecordArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -855,7 +856,7 @@ class RecordArgs(TypedDict):
 # **Record find many args**
 #
 # This synthesized interface doesn't have a description
-class RecordFindManyArgs(TypedDict):
+class RecordFindManyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Cursor**
@@ -912,7 +913,7 @@ class RecordFindManyArgs(TypedDict):
 # **Record find first args**
 #
 # This synthesized interface doesn't have a description
-class RecordFindFirstArgs(TypedDict):
+class RecordFindFirstArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Cursor**
@@ -969,7 +970,7 @@ class RecordFindFirstArgs(TypedDict):
 # **Record find unique args**
 #
 # This synthesized interface doesn't have a description
-class RecordFindUniqueArgs(TypedDict):
+class RecordFindUniqueArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -991,7 +992,7 @@ class RecordFindUniqueArgs(TypedDict):
 # **Record create args**
 #
 # This synthesized interface doesn't have a description
-class RecordCreateArgs(TypedDict):
+class RecordCreateArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Create**
@@ -1013,7 +1014,7 @@ class RecordCreateArgs(TypedDict):
 # **Record update args**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateArgs(TypedDict):
+class RecordUpdateArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -1040,7 +1041,7 @@ class RecordUpdateArgs(TypedDict):
 # **Record upsert args**
 #
 # This synthesized interface doesn't have a description
-class RecordUpsertArgs(TypedDict):
+class RecordUpsertArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Create**
@@ -1072,7 +1073,7 @@ class RecordUpsertArgs(TypedDict):
 # **Record copy args**
 #
 # This synthesized interface doesn't have a description
-class RecordCopyArgs(TypedDict):
+class RecordCopyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Copy**
@@ -1099,7 +1100,7 @@ class RecordCopyArgs(TypedDict):
 # **Record delete args**
 #
 # This synthesized interface doesn't have a description
-class RecordDeleteArgs(TypedDict):
+class RecordDeleteArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -1121,7 +1122,7 @@ class RecordDeleteArgs(TypedDict):
 # **Record create many args**
 #
 # This synthesized interface doesn't have a description
-class RecordCreateManyArgs(TypedDict):
+class RecordCreateManyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Create**
@@ -1143,7 +1144,7 @@ class RecordCreateManyArgs(TypedDict):
 # **Record update many args**
 #
 # This synthesized interface doesn't have a description
-class RecordUpdateManyArgs(TypedDict):
+class RecordUpdateManyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -1170,7 +1171,7 @@ class RecordUpdateManyArgs(TypedDict):
 # **Record delete many args**
 #
 # This synthesized interface doesn't have a description
-class RecordDeleteManyArgs(TypedDict):
+class RecordDeleteManyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Include**
@@ -1192,7 +1193,7 @@ class RecordDeleteManyArgs(TypedDict):
 # **Record copy many args**
 #
 # This synthesized interface doesn't have a description
-class RecordCopyManyArgs(TypedDict):
+class RecordCopyManyArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Copy**
@@ -1219,7 +1220,7 @@ class RecordCopyManyArgs(TypedDict):
 # **Record count args**
 #
 # This synthesized interface doesn't have a description
-class RecordCountArgs(TypedDict):
+class RecordCountArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Cursor**
@@ -1271,7 +1272,7 @@ class RecordCountArgs(TypedDict):
 # **Record aggregate args**
 #
 # This synthesized interface doesn't have a description
-class RecordAggregateArgs(TypedDict):
+class RecordAggregateArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Avg**
@@ -1343,7 +1344,7 @@ class RecordAggregateArgs(TypedDict):
 # **Record group by args**
 #
 # This synthesized interface doesn't have a description
-class RecordGroupByArgs(TypedDict):
+class RecordGroupByArgs(RequestBodyObjectAnnotationMark):
 
 
     # **Avg**
@@ -1425,7 +1426,7 @@ class RecordGroupByArgs(TypedDict):
 # **Record scalar update input**
 #
 # This synthesized interface doesn't have a description
-class RecordScalarUpdateInput(TypedDict):
+class RecordScalarUpdateInput(RequestBodyObjectAnnotationMark):
 
 
     # **Created At**
@@ -1452,7 +1453,7 @@ class RecordScalarUpdateInput(TypedDict):
 # **Record sign in checker ids**
 #
 # This synthesized interface doesn't have a description
-class RecordSignInCheckerIds(TypedDict):
+class RecordSignInCheckerIds(RequestBodyObjectAnnotationMark):
 
     pass
 
@@ -1461,7 +1462,7 @@ class RecordSignInCheckerIds(TypedDict):
 # **Record sign in checker companions**
 #
 # This synthesized interface doesn't have a description
-class RecordSignInCheckerCompanions(TypedDict):
+class RecordSignInCheckerCompanions(RequestBodyObjectAnnotationMark):
 
     pass
 
@@ -1470,7 +1471,7 @@ class RecordSignInCheckerCompanions(TypedDict):
 # **Record sign in input**
 #
 # This synthesized interface doesn't have a description
-class RecordSignInInput(TypedDict):
+class RecordSignInInput(RequestBodyObjectAnnotationMark):
 
 
     # **Credentials**
@@ -1492,7 +1493,7 @@ class RecordSignInInput(TypedDict):
 # **Record sign in args**
 #
 # This synthesized interface doesn't have a description
-class RecordSignInArgs(TypedDict):
+class RecordSignInArgs(RequestBodyObjectAnnotationMark):
 
     pass
 
@@ -1543,17 +1544,17 @@ class Record:
 
 
 
-class EchoPathArguments(TypedDict):
+class EchoPathArguments(CapturesAnnotationMark):
 
     data: str
 
 
-class StaticPathArguments(TypedDict):
+class StaticPathArguments(CapturesAnnotationMark):
 
     path: str
 
 
-class Teo:
+class Teo(TeoAnnotationMark):
 
     
     async def transaction[T](self, teo: Teo, /) -> T:
