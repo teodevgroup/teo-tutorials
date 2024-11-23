@@ -1,5 +1,5 @@
 from asyncio import run
-from teo import App, Response, HandlerGroup, TeoException
+from teo import App, Response, TeoException
 from entities import EchoPathArguments, StaticPathArguments, AlterCreatedAtInput, Teo, UploadInput
 from pathlib import Path
 from random import choice
